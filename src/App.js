@@ -4,10 +4,10 @@ import ChineseMenu from './pages/ChineseMenu';
 import JapaneseMenu from './pages/JapaneseMenu';
 import KoreanMenu from './pages/KoreanMenu';
 import Navbar from './pages/Navbar';
-import Sidebar from './pages/Sidebar';
 import {
   BrowserRouter,
   Route,
+  Switch,
 } from 'react-router-dom';
 
 
@@ -26,17 +26,17 @@ class App extends Component {
             레시피 앱
           </h1>
           <Navbar />
-          <div
-            style={{
-              display: 'flex',
-            }}
-          >
-            <Sidebar />
-            <div>
-              <Route path="/chinese" component={ChineseMenu}/>
-              <Route path="/japanese" component={JapaneseMenu}/>
-              <Route path="/korean" component={KoreanMenu}/>
-            </div>
+          <div>
+            <Route path="/chinese" component={ChineseMenu}/>
+            <Route path="/japanese" component={JapaneseMenu}/>
+            <Route path="/korean" component={KoreanMenu}/>
+            <Route path="/" render={() => {
+              return (
+                <h2>
+                  레시피 앱에 오신 것을 환영합니다
+                </h2>
+              )
+            }} />
           </div>
         </div>
       </BrowserRouter>

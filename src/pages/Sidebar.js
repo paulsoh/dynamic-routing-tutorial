@@ -3,6 +3,7 @@ import React from 'react';
 
 export default class Sidebar extends React.Component {
   render() {
+    const menuItems = this.props.menuItems || [];
     return (
       <aside
         style={{
@@ -10,21 +11,15 @@ export default class Sidebar extends React.Component {
         }}
       >
         <ul>
-          <li>
-            <a>
-              자장면
-            </a>
-          </li>
-          <li>
-            <a>
-              짬뽕
-            </a>
-          </li>
-          <li>
-            <a>
-              볶음밥
-            </a>
-          </li>
+          {menuItems.map((item) => {
+            return (
+              <li>
+                <a>
+                  {item.label}
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </aside>
     );

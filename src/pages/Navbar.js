@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  Link,
+} from 'react-router-dom';
 
 
 export default class Navbar extends React.Component {
@@ -12,15 +15,15 @@ export default class Navbar extends React.Component {
           padding: '10px',
         }}
       >
-        <a>
+        <Link to="/chinese">
           중식
-        </a>
-        <a>
+        </Link>
+        <Link to="/japanese">
           일식
-        </a>
-        <a>
+        </Link>
+        <Link to="/korean">
           한식
-        </a>
+        </Link>
       </nav>
     );
   }
