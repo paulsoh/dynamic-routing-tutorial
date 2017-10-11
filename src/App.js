@@ -1,19 +1,45 @@
+import './App.css'
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ChineseMenu from './pages/ChineseMenu';
+import JapaneseMenu from './pages/JapaneseMenu';
+import KoreanMenu from './pages/KoreanMenu';
+import Navbar from './pages/Navbar';
+import Sidebar from './pages/Sidebar';
+import {
+  BrowserRouter,
+  Route,
+} from 'react-router-dom';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: 'lavender'
+          }}
+        >
+          <h1 style={{ textAlign: 'center' }}>
+            레시피 앱
+          </h1>
+          <Navbar />
+          <div
+            style={{
+              display: 'flex',
+            }}
+          >
+            <Sidebar />
+            <div>
+              <Route path="/chinese" component={ChineseMenu}/>
+              <Route path="/japanese" component={JapaneseMenu}/>
+              <Route path="/korean" component={KoreanMenu}/>
+            </div>
+          </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
