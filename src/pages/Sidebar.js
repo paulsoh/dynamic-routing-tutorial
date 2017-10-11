@@ -1,7 +1,11 @@
 import React from 'react';
+import {
+  Link,
+  withRouter,
+} from 'react-router-dom';
 
 
-export default class Sidebar extends React.Component {
+class Sidebar extends React.Component {
   render() {
     const menuItems = this.props.menuItems || [];
     return (
@@ -14,14 +18,20 @@ export default class Sidebar extends React.Component {
           {menuItems.map((item) => {
             return (
               <li>
-                <a>
+                <Link to={`${this.props.match.url}/${item.path}`}>
                   {item.label}
-                </a>
+                </Link>
               </li>
             )
           })}
         </ul>
+
+        <button onClick={() => this.props.history.push('/')}>
+          홈으로 가기
+        </button>
       </aside>
     );
   }
 }
+
+export default withRouter(Sidebar);

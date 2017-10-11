@@ -27,16 +27,18 @@ class App extends Component {
           </h1>
           <Navbar />
           <div>
-            <Route path="/chinese" component={ChineseMenu}/>
-            <Route path="/japanese" component={JapaneseMenu}/>
-            <Route path="/korean" component={KoreanMenu}/>
-            <Route path="/" render={() => {
-              return (
-                <h2>
-                  레시피 앱에 오신 것을 환영합니다
-                </h2>
-              )
-            }} />
+            <Switch>
+              <Route path="/chinese" component={ChineseMenu}/>
+              <Route path="/japanese" component={JapaneseMenu}/>
+              <Route path="/korean" component={KoreanMenu}/>
+              <Route path="/" render={() => {
+                return (
+                  <h2>
+                    레시피 앱에 오신 것을 환영합니다
+                  </h2>
+                )
+              }} />
+            </Switch>
           </div>
         </div>
       </BrowserRouter>
