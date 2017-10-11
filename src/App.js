@@ -12,6 +12,16 @@ import {
 
 
 class App extends Component {
+  state = {
+    isLoggedIn: false,
+  }
+
+  handleLogin = () => {
+    this.setState({
+      isLoggedIn: !this.state.isLoggedIn,
+    })
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -25,6 +35,11 @@ class App extends Component {
           <h1 style={{ textAlign: 'center' }}>
             레시피 앱
           </h1>
+          <div>
+            <button onClick={this.handleLogin}>
+              {this.state.isLoggedIn ? '로그아웃' : '로그인'}
+            </button>
+          </div>
           <Navbar />
           <div>
             <Switch>
